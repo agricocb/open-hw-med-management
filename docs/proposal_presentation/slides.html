@@ -28,6 +28,23 @@ class: center, middle
 
 Proposer: Craig Agricola
 
+???
+
+"Good afternoon, my name is Craig Agricola and,"
+
+"I'd like to present my vision for an
+
+ open hardware
+
+ medication
+
+ management
+
+ platform"
+
+"I'm going to go pretty quickly through the "elevator pitch" portion so that I
+ don't run over my time when we get to the project details."
+
 ---
 
 # Project background
@@ -44,7 +61,7 @@ Proposer: Craig Agricola
 
 --
 
-- Remembering to consistently take long term medication is surprisingly
+- Remembering to take long term medication consistently is surprisingly
   difficult
   - The symptoms are often not acute until *after* we forget to take them
   - After a few weeks, we don't think about it as actively
@@ -60,11 +77,11 @@ Proposer: Craig Agricola
 
 --
 
-  - Adults with normal memory, but who are distracted by chaotic lives
+  - Older adults with the memory issues associated with aging
 
 --
 
-  - Older adults with the memory issues associated with aging
+  - Adults with normal memory, but who are distracted by chaotic routines (parents)
 
 --
 
@@ -77,8 +94,20 @@ Proposer: Craig Agricola
 ???
 
    - Personal anecdote
-     - I've got 4 kids, and management of their meds between two parents
-       implied a lot of coordinated communication, which often didn't happen
+
+     - I've got 4 kids, and 3 of them have had to take long term medications
+       when they were younger.
+
+       - Helping them to remember to take their meds was sometimes difficult
+         because they wouldn't remember if they already had
+
+       - Sometimes I would give them their meds before I left, and when my wife
+         checked in with them, they wouldn't remember whether they had already
+         taken them or not.
+
+       - She couldn't easily ask me, because I had already left...
+
+Technology should be able to help with this!
 
 ---
 
@@ -93,9 +122,22 @@ Proposer: Craig Agricola
   - For children, and at least a subset of the elderly, a caretaker is often
     part of the solution
 
-     - Getting reminders and checking status, even remotely is a huge help
+     - Getting reminders and checking status remotely would be a huge help
 
 ???
+
+It often makes sense to have a smart device pay attention to the small things
+that we don't have the focus to pay attention to.
+
+It frees us up to focus on the stuff that we really do need to pay attention to.
+
+With kids and at least some of the aging population, a caretaker is involved in
+helping them remember.
+
+But this requires coordination;
+
+Getting reminders and checking status, and not having to be in the same place
+to do it, would be a huge help.
 
 ---
 
@@ -123,6 +165,14 @@ Proposer: Craig Agricola
 
 ???
 
+Just an alarm clock
+
+ - It doesn't know if you've actually taken the pill; it just goes off at a set
+   time
+
+   - It's basically a branded version of the alarm that you already have built
+     in to your phone.
+
 ---
 
 #Solutions already available
@@ -138,13 +188,11 @@ Proposer: Craig Agricola
 
 ???
 
-Solutions already available
- - Local pill reminders
-   - Bottle caps with an alarm clock in them
-   - Mobile apps that remind you
  - Commercially managed pill reminders
+
    - Left one is about $200
-   - Right one is about $800
+
+   - Right one is tamper resistent, and so more expensive, at about $800
 
 ---
 
@@ -160,17 +208,29 @@ Solutions already available
 
 ???
 
- - IoT reminders?
-   - You manage it, but with help from the technology
-     - No service to rely on or fees to support that service
-   - It fits somewhere between the above two solutions
-     - It's really a DIY solution, that appeals to the DIY/Maker mindset
+In addition to being fairly expensive, they also require a monthly service fee.
+
+Also generally seem to connect by a phone line
+
+ - It's outdated technology, when a huge number of homes have WiFi now
 
 ---
 
 #Solutions already available
 
  - What about the Internet of Things?
+
+???
+
+What about the Internet of Things?
+
+- Fridges and 
+
+- home thermostats and 
+
+- lights in your house
+
+can be web connected, why not this?
 
 --
 
@@ -181,6 +241,14 @@ Solutions already available
      - It's really a DIY solution, that will appeal to the DIY/Maker mindset
 
 ???
+
+Shouldn't we be able to manage it for ourselves?
+
+Instead of paying a service to call me or text me when I've missed a dose,
+shouldn't my phone do that for me for free?
+
+This solution fits somewhere between a local reminder and a commercially
+monitored device
 
 ---
 
@@ -202,10 +270,28 @@ Solutions already available
 
 ???
 
+There are two parts of the proposed solution
+
+- Create and open hardware / open software / open protocol solution
+
+- Define a standard for an embedded processor that connects
+
+  - the pill container or
+  - pill dispensor hardware
+  - to the internet
+
+- The processor handles the connection to the internet
+
+- and the processor provides a very simple interface to the pill container or
+  pill dispensor
+
+- Then designing new pill containers or dispensors is a focus on the mechanics
+  of the design, rather than the internet connectivity.
+
 ---
 
 #Proposed Solution
-###Create mobile apps to interface with the IoT hardware
+###Create mobile apps to interface with the hardware
 
    - The app handles the "business logic" of the medication management
 
@@ -213,7 +299,7 @@ Solutions already available
 
      - Alarms when medication hasn't been taken yet, but should have
 
-     - Triggers the dispensing of pills for pill dispensor hardware
+     - For pill dispensor hardware, it triggers the dispensing of pills 
 
        - This can/should be authenticated, both in protocol and possibly in app
          interface for locking pill dispensors
@@ -228,37 +314,37 @@ Solutions already available
 ---
 
 #Project proposal
- - Flesh out and document the interfaces
+ 1. Flesh out and document the interfaces
 
- - Implement a reference design of the embedded microprocessor
+ 1. Implement a reference design of the embedded microprocessor
 
- - Implement a mock up design for a pill dispensor using the simple interface
+ 1. Implement a mock up design for a pill dispensor using the simple interface
 
- - Implement an iOS app that monitors and controls the embedded microprocessor
+ 1. Implement an iOS app that monitors and controls the embedded microprocessor
 
- - Stretch goals?
-
-???
-
----
-
-#Project proposal
- - **Flesh out and document the interfaces**
-
- - Implement a reference design of the embedded microprocessor
-
- - Implement a mock up design for a pill dispensor using the simple interface
-
- - Implement an iOS app that monitors and controls the embedded microprocessor
-
- - Stretch goals?
+ 1. Stretch goals?
 
 ???
 
 ---
 
 #Project proposal
- - **Flesh out and document the interfaces**
+ 1. **Flesh out and document the interfaces**
+
+ 1. Implement a reference design of the embedded microprocessor
+
+ 1. Implement a mock up design for a pill dispensor using the simple interface
+
+ 1. Implement an iOS app that monitors and controls the embedded microprocessor
+
+ 1. Stretch goals?
+
+???
+
+---
+
+#Project proposal
+ 1. **Flesh out and document the interfaces**
 
    - Between embedded microprocessor and the pill hardware
 
@@ -269,7 +355,7 @@ Solutions already available
 ---
 
 #Project proposal
- - **Flesh out and document the interfaces**
+ 1. **Flesh out and document the interfaces**
 
    - **Between embedded microprocessor and the pill hardware**
 
@@ -280,7 +366,7 @@ Solutions already available
 ---
 
 #Project proposal
- - **Flesh out and document the interfaces**
+ 1. **Flesh out and document the interfaces**
 
    - **Between embedded microprocessor and the pill hardware**
 
@@ -303,7 +389,7 @@ Solutions already available
 ---
 
 #Project proposal
- - **Flesh out and document the interfaces**
+ 1. **Flesh out and document the interfaces**
 
    - **Between embedded microprocessor and the pill hardware**
 
@@ -325,7 +411,7 @@ Solutions already available
 ---
 
 #Project proposal
- - **Flesh out and document the interfaces**
+ 1. **Flesh out and document the interfaces**
 
    - Between embedded microprocessor and the pill hardware
 
@@ -336,7 +422,7 @@ Solutions already available
 ---
 
 #Project proposal
- - **Flesh out and document the interfaces**
+ 1. **Flesh out and document the interfaces**
 
    - Between embedded microprocessor and the pill hardware
 
@@ -353,22 +439,22 @@ Solutions already available
 ---
 
 #Project proposal
- - Flesh out and document the interfaces
+ 1. Flesh out and document the interfaces
 
- - **Implement a reference design of the embedded microprocessor**
+ 1. **Implement a reference design of the embedded microprocessor**
 
- - Implement a mock up design for a pill dispensor using the simple interface
+ 1. Implement a mock up design for a pill dispensor using the simple interface
 
- - Implement an iOS app that monitors and controls the embedded microprocessor
+ 1. Implement an iOS app that monitors and controls the embedded microprocessor
 
- - Stretch goals?
+ 1. Stretch goals?
 
 ???
 
 ---
 
 #Project proposal
- - **Implement a reference design of the embedded microprocessor**
+ 2. **Implement a reference design of the embedded microprocessor**
 
    - Originally I envisioned an Arduino with a WiFi shield or a Raspberry Pi
      with a WiFi USB dongle
@@ -381,16 +467,16 @@ Solutions already available
 ---
 
 #Project proposal
- - Flesh out and document the interfaces
+ 1. Flesh out and document the interfaces
 
- - Implement a reference design of the embedded microprocessor
+ 1. Implement a reference design of the embedded microprocessor
 
- - **Implement a mock up design for a pill dispensor using the 3-wire dumb
+ 1. **Implement a mock up design for a pill dispensor using the 3-wire dumb
      interface**
 
- - Implement an iOS app that monitors and controls the embedded microprocessor
+ 1. Implement an iOS app that monitors and controls the embedded microprocessor
 
- - Stretch goals?
+ 1. Stretch goals?
 
 ???
 
@@ -398,25 +484,25 @@ Solutions already available
 
 #Project proposal
 
- - **Implement a mock up design for a pill dispensor using the 3-wire dumb
-     interface**
+ 3. **Implement a mock up design for a pill dispensor using the 3-wire dumb
+      interface**
 
-   - Probably just an led on a breadboard that lights up for the activate
+   - Probably just an LED on a breadboard that lights up for the activate
      signal and a push button switch for the monitor signal
 
 ---
 
 #Project proposal
- - Flesh out and document the interfaces
+ 1. Flesh out and document the interfaces
 
- - Implement a reference design of the embedded microprocessor
+ 1. Implement a reference design of the embedded microprocessor
 
- - Implement a mock up design for a pill dispensor using the simple interface
+ 1. Implement a mock up design for a pill dispensor using the simple interface
 
- - **Implement an iOS app that monitors and controls the embedded
+ 1. **Implement an iOS app that monitors and controls the embedded
      microprocessor**
 
- - Stretch goals?
+ 1. Stretch goals?
 
 ???
 
@@ -424,7 +510,7 @@ Solutions already available
 
 #Project proposal
 
- - **Implement an iOS app that provides**
+ 4. **Implement an iOS app that provides**
 
    - Pro-active or re-active alarms
 
@@ -433,20 +519,28 @@ Solutions already available
    - Handles authentication and different levels of authorization (per pill
      dispensor device)
 
-   - The features here need more thought (your input!)
+     - Multiple pill dispensors connected to a mobile device
+
+     - Multiple mobile devices connected to a pill dispensor
+
+   - Handles configuration of the embedded processor
+
+     - The devices connected and how they are connected and who they are for
+
+   - I want your input for more features here!
 
 ---
 
 #Project proposal
- - Flesh out and document the interfaces
+ 1. Flesh out and document the interfaces
 
- - Implement a reference design of the embedded microprocessor
+ 1. Implement a reference design of the embedded microprocessor
 
- - Implement a mock up design for a pill dispensor using the simple interface
+ 1. Implement a mock up design for a pill dispensor using the simple interface
 
- - Implement an iOS app that monitors and controls the embedded microprocessor
+ 1. Implement an iOS app that monitors and controls the embedded microprocessor
 
- - **Stretch goals?**
+ 1. **Stretch goals?**
 
 ???
 
@@ -454,7 +548,7 @@ Solutions already available
 
 #Project proposal
 
- - **Stretch goals**
+ 5. **Stretch goals**
 
    - Implement an Android app with the iOS app functionality
 
@@ -508,17 +602,20 @@ Solutions already available
 #IP Agreement
  - I'll retain all rights to the architecture and specifications of the protocol
 
+   - There's really nothing patentable here, but I'd keep whatever rights there
+     might be for the ideas
+
  - I envision this as living in the Open Source/Open Hardware ecosystem
 
    - You retain copyright to the code/contributions that you write
 
-   - Marketability in this ecosystem is different than in most commercial
-     environments
+ - Marketability in this ecosystem is different than in most commercial
+   environments
 
-     - People buy pre-made devices to save time and gain cost benefits of scale
+   - People buy pre-made devices to save time and gain cost benefits of scale
 
-     - People buy software to save time in building the software (more rarely)
-         - or to get support on the software
+   - People buy software to save time in building the software (more rarely)
+       - or to get support on the software
 
 ---
 
