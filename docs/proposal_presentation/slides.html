@@ -24,9 +24,306 @@ class: center, middle
 # Open Hardware
 # Medication Management
 
+<br/><br/>
+
+Proposer: Craig Agricola
+
 ---
 
-## Project background
+# Project background
+
+### Why should we care about medication management?
+
+- It's not really that hard to remember to take medicine, is it?
+
+--
+
+- It's not, but mostly for two reasons:
+  - The vast majority of what we take is short term
+  - A lot of what we take we are driven to take because of symptoms
+
+--
+
+- Remembering to consistently take long term medication is surprisingly
+  difficult
+  - The symptoms are often not acute until *after* we forget to take them
+  - After a few weeks, we don't think about it as actively
+
+???
+
+---
+
+# Project background
+### Why should we care about medication management?
+
+- There are three groups who are especially prone to forgetting:
+
+--
+
+  - Adults with normal memory, but who are distracted by chaotic lives
+
+--
+
+  - Older adults with the memory issues associated with aging
+
+--
+
+  - Children
+
+--
+
+     - This was my personal reason to think about the problem
+
+???
+
+   - Personal anecdote
+     - I've got 4 kids, and management of their meds between two parents
+       implied a lot of coordinated communication, which often didn't happen
+
+---
+
+# Project background
+### Why should we care about medication management?
+
+- Technology should be able to help!
+
+  - For the distracted adults, it makes sense to outsource the work of paying
+    attention to a smart device
+
+  - For children, and at least a subset of the elderly, a caretaker is often
+    part of the solution
+
+     - Getting reminders and checking status, even remotely is a huge help
+
+???
+
+---
+
+#Solutions already available
+
+ - Localized solutions
+
+--
+
+   - Pill containers with a built in alarm clock
+
+   <center><img src="http://ep.yimg.com/ay/epill/4-alarm-vibrating-pocket-pill-box-purple-only-39-95-free-shipping-11.gif" height="350"/></center>
+
+???
+
+---
+
+#Solutions already available
+
+ - Localized solutions
+   - Pill containers with a built in alarm clock
+   - Mobile reminder apps
+
+   <center><img src="https://lh6.ggpht.com/J4Mg5eu44_mF9MfyHjHhTXxUtSMonvc8I8gdd3Tfol2pQ-di87xyOeK-kU9ovLUW7oI=h900" height="350px"/></center>
+
+???
+
+---
+
+#Solutions already available
+
+ - Localized solutions
+   - Pill containers with a built in alarm clock
+   - Mobile reminder apps
+
+ - Commercially managed pill reminders with monitoring
+
+   <center><img src="https://www.safecall.biz/wp-content/uploads/2011/08/medreadynew.jpg" height="300px"/><img src="http://ep.yimg.com/ca/I/epill_2272_49652332" height="300px"/></center>
+
+???
+
+Solutions already available
+ - Local pill reminders
+   - Bottle caps with an alarm clock in them
+   - Mobile apps that remind you
+ - Commercially managed pill reminders
+   - Left one is about $200
+   - Right one is about $800
+
+---
+
+#Solutions already available
+
+ - Localized solutions
+   - Pill containers with a built in alarm clock
+   - Mobile reminder apps
+
+ - Commercially managed pill reminders with monitoring
+   - Fairly expensive
+   - Monitoring requires a recurring fee
+
+???
+
+ - IoT reminders?
+   - You manage it, but with help from the technology
+     - No service to rely on or fees to support that service
+   - It fits somewhere between the above two solutions
+     - It's really a DIY solution, that appeals to the DIY/Maker mindset
+
+---
+
+#Solutions already available
+
+ - What about the Internet of Things?
+
+--
+
+   - Shouldn't we be able to manage it ourselves
+     - No recurring service fees
+
+   - This solution fits somewhere between the other two solutions
+     - It's really a DIY solution, that will appeal to the DIY/Maker mindset
+
+???
+
+---
+
+#Proposed Solution
+###Create an open hardware/software/protocol solution
+
+   - Define a standard for an embedded microprocessor that connects pill
+     containers & dispensors to the IoT (Internet of Things)
+
+     - The embedded processor handles:
+
+       - connection and communication to the internet
+
+       - a very simple interface to the pill container/dispensor
+
+     - Makes designing/producing the mechanics of the pill container or
+       dispensor simply a focus on the mechanics, rather than the IoT
+       connectivity
+
+???
+
+---
+
+#Proposed Solution
+###Create mobile apps to interface with the IoT hardware
+
+   - The app handles the "business logic" of the medication management
+
+     - Alarms when medication should be taken *or*
+
+     - Alarms when medication hasn't been taken yet, but should have
+
+     - Triggers the dispensing of pills for pill dispensor hardware
+
+       - This can/should be authenticated, both in protocol and possibly in app
+         interface for locking pill dispensors
+
+   - The app should be tolerant of multiple mobile devices coordinating the
+     management
+
+   - The app should be tolerant of managing multiple embedded processors
+
+???
+
+---
+
+#Project proposal
+
+???
+
+Project proposal
+ - Flesh out and document the interfaces
+   - Between embedded microprocessor an the pill hardware
+     - I anticipate a 3 wire interface for "dumb" devices
+       - Ground + Activate signal + Monitor signal
+         - This covers a container that beeps/flashes a light as a reminder,
+           and monitors that the container was opened
+         - Covers a mechanism that can be powered until a sensor sees a pill be
+           dispensed; the MCU sets the activate wire high until the monitor
+           signal goes high.
+     - Also a 3 wire interface for "smart" devices
+       - Probably a I2C interface with some minimal authentication
+       - Allows one internet connected MCU to control many pill mechanisms
+         with the help of a much lower cost/complexity helper MCU
+       - Probably desirable for "locking" dispensors when the internet
+         connected MCU might be outside of the hardware mechanism.
+   - Between the embedded MCU and the mobile apps
+     - Push notification from MCU to internet message board
+     - Pull notification from internet message board to mobile apps
+ - Implement a reference design of the embedded microprocessor
+   - Originally I envisioned an Arduino with a WiFi shield or a Raspberry Pi
+     with a WiFi USB dongle
+   - Spark.io Core has become available in the last year, and is much better
+     suited
+     - Reference design will probably be a bread-boarded Spark.io Core
+ - Implement a mock up design for a pill dispensor using the 3-wire dumb
+   interface
+ - Implement an iOS app that provides
+   - Pro-active or re-active alarms
+   - Triggering the dispensing of pills
+   - Handles authentication and different levels of authorization (per pill
+     dispensor device)
+ - Stretch goals
+   - Implement an Android app with the iOS app functionality
+   - Create Gerber files for a PCB for possible productization of the MCU
+   - Create an enclosure (or even just a 3D model enclosure design) for the
+     Spark.io Core or the custom PCB
+   - Implement a reference design for a pill container using the 3-wire dumb
+     interface
+   - Implement a mock up design for a pill dispensor using the I2C interface
+
+---
+
+#Proposed organizational plan
+
+???
+
+Proposed organizational plan
+ - GitHub with the traditional pull-request model
+   - I have a project started on GitHub
+   - Everybody should have a GitHub account, and will fork the project
+   - When contributions are ready to be fed back up to the main project, you'll
+     create a pull request for me to pull it in
+     - Pull requests can easily be made between people who are working together
+       between official releases to the main repository
+ - If anybody has a good reason for the project to stay private during
+   development, I have a personal Git server in a data center that I could give
+   everyone access to
+   - I'd still anticipate using the same pull-request model between personal
+     clones of the project
+   - Ultimately, I anticipate it ending up on GitHub (as an Open Hardware/Open
+     Source project), but if desired by individual contributors, the history
+     could be collapsed
+
+---
+
+#IP Agreement
+
+???
+
+IP Agreement
+ - I'll retain rights to the architecture and specifications of the protocol
+ - I envision this as living in the Open Source/Open Hardware ecosystem
+   - You retain copyright to the code/contributions that you write
+   - Marketability in this ecosystem is different than in most commercial
+     environments
+     - People buy pre-made devices to save time and gain cost benefits of scale
+     - People buy (more rarely) software to save time in building the software
+       - or to get support on the software
+   - So profit sharing would be differentiated based on who worked on the
+     hardware team vs the software team
+     - For the software team, if the app was able to be sold on the app store,
+       the profits would be split evenly between the coders of the app and me
+       (regardless of the amount of code written by any of us)
+     - Similarly for the profits on an Android version of the app, evenly
+       between the contributors to the codebase of the Android app
+     - For the hardware team, if the hardware turned out to be commercially
+       viable to produce and sell, the contributors would be invited to
+       participate in building a company (which implies probable financial
+       investment) to produce and then sell the hardware.  The share of the
+       profits would be negotiable as the company was being formally formed,
+       and would be mutually agreed upon based on the contribution of the
+       participants to the design and the monetary investment made to support
+       the creation of the company.
 
     </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
