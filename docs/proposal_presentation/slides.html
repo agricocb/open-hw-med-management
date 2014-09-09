@@ -227,49 +227,247 @@ Solutions already available
 ---
 
 #Project proposal
+ - Flesh out and document the interfaces
+
+ - Implement a reference design of the embedded microprocessor
+
+ - Implement a mock up design for a pill dispensor using the simple interface
+
+ - Implement an iOS app that monitors and controls the embedded microprocessor
+
+ - Stretch goals?
 
 ???
 
-Project proposal
- - Flesh out and document the interfaces
-   - Between embedded microprocessor an the pill hardware
-     - I anticipate a 3 wire interface for "dumb" devices
-       - Ground + Activate signal + Monitor signal
-         - This covers a container that beeps/flashes a light as a reminder,
-           and monitors that the container was opened
-         - Covers a mechanism that can be powered until a sensor sees a pill be
-           dispensed; the MCU sets the activate wire high until the monitor
-           signal goes high.
-     - Also a 3 wire interface for "smart" devices
-       - Probably a I2C interface with some minimal authentication
-       - Allows one internet connected MCU to control many pill mechanisms
-         with the help of a much lower cost/complexity helper MCU
-       - Probably desirable for "locking" dispensors when the internet
-         connected MCU might be outside of the hardware mechanism.
-   - Between the embedded MCU and the mobile apps
-     - Push notification from MCU to internet message board
-     - Pull notification from internet message board to mobile apps
+---
+
+#Project proposal
+ - **Flesh out and document the interfaces**
+
  - Implement a reference design of the embedded microprocessor
+
+ - Implement a mock up design for a pill dispensor using the simple interface
+
+ - Implement an iOS app that monitors and controls the embedded microprocessor
+
+ - Stretch goals?
+
+???
+
+---
+
+#Project proposal
+ - **Flesh out and document the interfaces**
+
+   - Between embedded microprocessor and the pill hardware
+
+   - Between embedded microprocessor and the mobile apps
+
+???
+
+---
+
+#Project proposal
+ - **Flesh out and document the interfaces**
+
+   - **Between embedded microprocessor and the pill hardware**
+
+   - Between embedded microprocessor and the mobile apps
+
+???
+
+---
+
+#Project proposal
+ - **Flesh out and document the interfaces**
+
+   - **Between embedded microprocessor and the pill hardware**
+
+     - I anticipate a 3 wire interface for "dumb" devices
+
+         - Ground + Activate signal + Monitor signal
+
+         - Covers a container that beeps/flashes a light as a
+           reminder, and monitors that the container was opened
+
+         - Covers a mechanism that can be powered until a sensor sees a
+           pill be dispensed
+             - The microprocessor sets the activate wire high until the monitor
+               signal goes high.
+
+   - Between embedded microprocessor and the mobile apps
+
+???
+
+---
+
+#Project proposal
+ - **Flesh out and document the interfaces**
+
+   - **Between embedded microprocessor and the pill hardware**
+
+     - Also a 3 wire interface for "smart" devices
+
+         - Probably a I2C interface with some minimal authentication
+
+         - Allows one internet connected microprocessor to control many pill
+           mechanisms with the help of a much lower cost/complexity helper
+           microprocessor
+
+         - Probably desirable for "locking" dispensors when the internet
+           connected microprocessor might be outside of the hardware mechanism.
+
+   - Between embedded microprocessor and the mobile apps
+
+???
+
+---
+
+#Project proposal
+ - **Flesh out and document the interfaces**
+
+   - Between embedded microprocessor and the pill hardware
+
+   - **Between embedded microprocessor and the mobile apps**
+
+???
+
+---
+
+#Project proposal
+ - **Flesh out and document the interfaces**
+
+   - Between embedded microprocessor and the pill hardware
+
+   - **Between embedded microprocessor and the mobile apps**
+
+     - Probably a centralized internet server to
+
+         - Accept and cache push notifications
+
+         - Service pull requests for the cached notifications
+
+???
+
+---
+
+#Project proposal
+ - Flesh out and document the interfaces
+
+ - **Implement a reference design of the embedded microprocessor**
+
+ - Implement a mock up design for a pill dispensor using the simple interface
+
+ - Implement an iOS app that monitors and controls the embedded microprocessor
+
+ - Stretch goals?
+
+???
+
+---
+
+#Project proposal
+ - **Implement a reference design of the embedded microprocessor**
+
    - Originally I envisioned an Arduino with a WiFi shield or a Raspberry Pi
      with a WiFi USB dongle
+
    - Spark.io Core has become available in the last year, and is much better
      suited
+
      - Reference design will probably be a bread-boarded Spark.io Core
- - Implement a mock up design for a pill dispensor using the 3-wire dumb
-   interface
- - Implement an iOS app that provides
+
+---
+
+#Project proposal
+ - Flesh out and document the interfaces
+
+ - Implement a reference design of the embedded microprocessor
+
+ - **Implement a mock up design for a pill dispensor using the 3-wire dumb
+     interface**
+
+ - Implement an iOS app that monitors and controls the embedded microprocessor
+
+ - Stretch goals?
+
+???
+
+---
+
+#Project proposal
+
+ - **Implement a mock up design for a pill dispensor using the 3-wire dumb
+     interface**
+
+   - Probably just an led on a breadboard that lights up for the activate
+     signal and a push button switch for the monitor signal
+
+---
+
+#Project proposal
+ - Flesh out and document the interfaces
+
+ - Implement a reference design of the embedded microprocessor
+
+ - Implement a mock up design for a pill dispensor using the simple interface
+
+ - **Implement an iOS app that monitors and controls the embedded
+     microprocessor**
+
+ - Stretch goals?
+
+???
+
+---
+
+#Project proposal
+
+ - **Implement an iOS app that provides**
+
    - Pro-active or re-active alarms
+
    - Triggering the dispensing of pills
+
    - Handles authentication and different levels of authorization (per pill
      dispensor device)
- - Stretch goals
+
+   - The features here need more thought (your input!)
+
+---
+
+#Project proposal
+ - Flesh out and document the interfaces
+
+ - Implement a reference design of the embedded microprocessor
+
+ - Implement a mock up design for a pill dispensor using the simple interface
+
+ - Implement an iOS app that monitors and controls the embedded microprocessor
+
+ - **Stretch goals?**
+
+???
+
+---
+
+#Project proposal
+
+ - **Stretch goals**
+
    - Implement an Android app with the iOS app functionality
+
    - Create Gerber files for a PCB for possible productization of the MCU
+
    - Create an enclosure (or even just a 3D model enclosure design) for the
      Spark.io Core or the custom PCB
+
    - Implement a reference design for a pill container using the 3-wire dumb
      interface
+
    - Implement a mock up design for a pill dispensor using the I2C interface
+
+???
 
 ---
 
